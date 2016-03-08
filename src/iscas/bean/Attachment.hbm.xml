@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-3-7 17:33:00 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="iscas.bean.Attachment" table="attachment" catalog="reclassification">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <property name="filename" type="string">
+            <column name="filename" length="1024">
+                <comment>&#184;&#189;&#188;&#254;&#212;&#173;&#192;&#180;&#181;&#196;&#195;&#251;&#215;&#214;</comment>
+            </column>
+        </property>
+        <property name="savename" type="string">
+            <column name="savename" length="2048">
+                <comment>&#177;&#163;&#180;&#230;&#206;&#170;&#181;&#196;&#195;&#251;&#215;&#214;</comment>
+            </column>
+        </property>
+        <property name="filesize" type="java.lang.Integer">
+            <column name="filesize">
+                <comment>&#184;&#189;&#188;&#254;&#180;&#243;&#208;&#161;</comment>
+            </column>
+        </property>
+        <property name="filemd5" type="string">
+            <column name="filemd5">
+                <comment>&#184;&#189;&#188;&#254;&#181;&#196;MD5&#214;&#181;</comment>
+            </column>
+        </property>
+        <property name="extracted" type="java.lang.Integer">
+            <column name="extracted">
+                <comment>
+                &#202;&#199;&#183;&#241;&#179;&#201;&#185;&#166;&#179;&#233;&#200;&#161;&#163;&#172;1&#163;&#186;&#202;&#199;&#163;&#187;0&#163;&#186;&#183;&#241;</comment>
+            </column>
+        </property>
+        <property name="addtime" type="timestamp">
+            <column name="addtime" length="19">
+                <comment>&#204;&#237;&#188;&#211;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="storepath" type="string">
+            <column name="storepath" length="512">
+                <comment>&#180;&#230;&#180;&#162;&#194;&#183;&#190;&#182;</comment>
+            </column>
+        </property>
+        <property name="senddate" type="string">
+            <column name="senddate" />
+        </property>
+        <property name="privileged" type="java.lang.Integer">
+            <column name="privileged" />
+        </property>
+        <property name="hasformula" type="int">
+            <column name="hasformula" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-3-7 17:33:00 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="iscas.bean.VenronFilelist" table="venron_filelist" catalog="reclassification">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <property name="fileOrderInGroup" type="java.lang.Integer">
+            <column name="FileOrderInGroup" />
+        </property>
+        <property name="groupId" type="java.lang.Integer">
+            <column name="GroupId" />
+        </property>
+        <property name="fileName" type="string">
+            <column name="FileName" length="1024" />
+        </property>
+        <property name="sendingTime" type="string">
+            <column name="SendingTime" />
+        </property>
+        <property name="sender" type="string">
+            <column name="sender" length="1024" />
+        </property>
+        <property name="md5" type="string">
+            <column name="MD5" />
+        </property>
+        <property name="filePath" type="string">
+            <column name="FilePath" length="1024" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-3-7 17:33:00 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="iscas.bean.Emls" table="emls" catalog="reclassification">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <property name="filename" type="string">
+            <column name="filename" />
+        </property>
+        <property name="filepath" type="string">
+            <column name="filepath" length="4096" />
+        </property>
+        <property name="filemd5" type="string">
+            <column name="filemd5" not-null="true" />
+        </property>
+        <property name="privileged" type="java.lang.Integer">
+            <column name="privileged" />
+        </property>
+        <property name="status" type="int">
+            <column name="status" not-null="true" />
+        </property>
+        <property name="hasattachment" type="int">
+            <column name="hasattachment" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

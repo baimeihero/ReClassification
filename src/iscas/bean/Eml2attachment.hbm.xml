@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-3-7 17:33:00 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="iscas.bean.Eml2attachment" table="eml2attachment" catalog="reclassification">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <property name="emlmd5" type="string">
+            <column name="emlmd5" />
+        </property>
+        <property name="attachmentmd5" type="string">
+            <column name="attachmentmd5" />
+        </property>
+        <property name="attachmentname" type="string">
+            <column name="attachmentname" length="1024" />
+        </property>
+    </class>
+</hibernate-mapping>

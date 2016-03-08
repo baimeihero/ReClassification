@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-3-7 17:33:00 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="iscas.bean.VenronGroup" table="venron_group" catalog="reclassification">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <property name="groupOrder" type="string">
+            <column name="GroupOrder" />
+        </property>
+        <property name="groupName" type="string">
+            <column name="GroupName" />
+        </property>
+        <property name="groupPath" type="string">
+            <column name="GroupPath" length="1024" />
+        </property>
+        <property name="fileCount" type="java.lang.Integer">
+            <column name="FileCount" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="reclassification" match-name="attachment"/>
+  <table-filter match-catalog="reclassification" match-name="attachmentdetail"/>
+  <table-filter match-catalog="reclassification" match-name="email"/>
+  <table-filter match-catalog="reclassification" match-name="emaildetail"/>
+  <table-filter match-catalog="reclassification" match-name="emailmap"/>
+  <table-filter match-catalog="reclassification" match-name="eml2attachment"/>
+  <table-filter match-catalog="reclassification" match-name="emls"/>
+  <table-filter match-catalog="reclassification" match-name="venron_filelist"/>
+  <table-filter match-catalog="reclassification" match-name="venron_group"/>
+  <table-filter match-catalog="reclassification" match-name="emailaddress"/>
+  <table-filter match-catalog="reclassification" match-name="labelinfo"/>
+  <table-filter match-catalog="reclassification" match-name="filelist"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-3-7 17:33:00 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="iscas.bean.Emailmap" table="emailmap" catalog="reclassification">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <property name="groupname" type="string">
+            <column name="groupname" />
+        </property>
+        <property name="sendernum" type="java.lang.Integer">
+            <column name="sendernum" />
+        </property>
+        <property name="usernum" type="java.lang.Integer">
+            <column name="usernum" />
+        </property>
+        <property name="longestpath" type="java.lang.Integer">
+            <column name="longestpath" />
+        </property>
+        <property name="maxedgenum" type="java.lang.Integer">
+            <column name="maxedgenum" />
+        </property>
+        <property name="tonum" type="java.lang.Integer">
+            <column name="tonum" />
+        </property>
+        <property name="ccnum" type="java.lang.Integer">
+            <column name="ccnum" />
+        </property>
+        <property name="bcnum" type="java.lang.Integer">
+            <column name="bcnum" />
+        </property>
+        <property name="spreadsheetnum" type="java.lang.Integer">
+            <column name="spreadsheetnum" />
+        </property>
+    </class>
+</hibernate-mapping>
