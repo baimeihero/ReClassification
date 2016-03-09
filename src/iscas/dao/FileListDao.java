@@ -54,7 +54,13 @@ public class FileListDao {
 		return list;
 	}
 	
-
+	public List queryBySql(String sql) {    
+		Session session = null;
+		session = HibernateSessionFactory.currentSession();
+        List<Object[]> list = session.createSQLQuery(sql).list();    
+    	HibernateSessionFactory.closeSession();
+        return list;    
+    }    
 
 	public void delete(int id) {
 		Session session = null;

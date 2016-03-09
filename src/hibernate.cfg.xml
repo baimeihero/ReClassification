@@ -12,17 +12,18 @@
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.search.autoregister_listeners">false</property>
         <property name="hibernate.show_sql">false</property>
-        <mapping resource="iscas/bean/VenronFilelist.hbm.xml" />
         <mapping resource="iscas/bean/Labelinfo.hbm.xml" />
-        <mapping resource="iscas/bean/Eml2attachment.hbm.xml" />
+        <mapping resource="iscas/bean/Sheetname.hbm.xml" />
+        <mapping resource="iscas/bean/VenronFilelist.hbm.xml" />
         <mapping resource="iscas/bean/Attachment.hbm.xml" />
-        <mapping resource="iscas/bean/Emls.hbm.xml" />
-        <mapping resource="iscas/bean/Filelist.hbm.xml" />
-        <mapping resource="iscas/bean/Emailmap.hbm.xml" />
+        <mapping resource="iscas/bean/Eml2attachment.hbm.xml" />
         <mapping resource="iscas/bean/Emailaddress.hbm.xml" />
-        <mapping resource="iscas/bean/VenronGroup.hbm.xml" />
-        <mapping resource="iscas/bean/Emaildetail.hbm.xml" />
+        <mapping resource="iscas/bean/Emailmap.hbm.xml" />
+        <mapping resource="iscas/bean/Filelist.hbm.xml" />
         <mapping resource="iscas/bean/Attachmentdetail.hbm.xml" />
         <mapping resource="iscas/bean/Email.hbm.xml" />
+        <mapping resource="iscas/bean/Emls.hbm.xml" />
+        <mapping resource="iscas/bean/VenronGroup.hbm.xml" />
+        <mapping resource="iscas/bean/Emaildetail.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

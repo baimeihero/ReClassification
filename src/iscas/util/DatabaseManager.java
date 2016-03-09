@@ -12,6 +12,7 @@ import iscas.bean.Eml2attachment;
 import iscas.bean.Emls;
 import iscas.bean.Filelist;
 import iscas.bean.Labelinfo;
+import iscas.bean.Sheetname;
 import iscas.bean.VenronFilelist;
 import iscas.bean.VenronGroup;
 import iscas.dao.AttachmentDao;
@@ -23,6 +24,7 @@ import iscas.dao.Eml2attachmentDao;
 import iscas.dao.EmlsDao;
 import iscas.dao.FileListDao;
 import iscas.dao.LabelInfoDao;
+import iscas.dao.SheetNameDao;
 import iscas.dao.VenronFilelistDao;
 import iscas.dao.VenronGroupDao;
 
@@ -384,7 +386,7 @@ public class DatabaseManager {
 		LabelInfoDao dao=new LabelInfoDao();
 		return dao.getAllLabelinfo();
 	}
-	// =============================LabelInfoDao=================
+	// ==============================FileListDao=================
 	public static void saveOrUpdateFileList(Filelist filelist) {
 		FileListDao dao=new FileListDao();
 		dao.saveOrUpdate(filelist);
@@ -396,6 +398,26 @@ public class DatabaseManager {
 	public static  Filelist getFilelistByFileMD5(String fileMd5) {
 		FileListDao dao=new FileListDao();
 		return dao.getFilelistByFileMD5(fileMd5);
+	}
+	public static  List<String>  getFilelistCanBeAnalysis() {
+		FileListDao dao=new FileListDao();
+		return dao.queryBySql(SQLStatements.Query_FileList_CanBeAnalysis);
+	}
+	// ==============================SheetName=================
+	public static void saveOrUpdateSheetName(Sheetname sheetname) {
+		SheetNameDao dao=new SheetNameDao();
+		dao.saveOrUpdate(sheetname);
+	}
+	
+	
+	public static  List<Sheetname> getSheetnameByFileMD5(String fileMD5) {
+		SheetNameDao dao=new SheetNameDao();
+		return dao.getSheetnameByFileMD5(fileMD5);
+	}
+	
+	public static List<Sheetname> getAllSheetnames() {
+		SheetNameDao dao=new SheetNameDao();
+		return dao.getAllSheetnames();
 	}
 	
 }
