@@ -1,25 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
-		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory name="reclassification">
-        <property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
+        <property name="hibernate.connection.characterEncoding">UTF-8</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/reclassification</property>
+        <property name="hibernate.connection.useUnicode">true</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.search.autoregister_listeners">false</property>
         <property name="hibernate.show_sql">false</property>
-		<property name="connection.useUnicode">true</property>
-		<property name="connection.characterEncoding">UTF-8</property>
-    	<mapping resource="iscas/bean/Attachment.hbm.xml" />
-		<mapping resource="iscas/bean/Attachmentdetail.hbm.xml" />
-		<mapping resource="iscas/bean/Emaildetail.hbm.xml" />
-		<mapping resource="iscas/bean/Email.hbm.xml" />
-		<mapping resource="iscas/bean/Emls.hbm.xml" />
-		<mapping resource="iscas/bean/Eml2attachment.hbm.xml" />
-		<mapping resource="iscas/bean/VenronFilelist.hbm.xml" />
-		<mapping resource="iscas/bean/VenronGroup.hbm.xml" />
-	<mapping resource="iscas/bean/Labelinfo.hbm.xml" />
-	<mapping resource="iscas/bean/Filelist.hbm.xml" />
+        <mapping resource="iscas/bean/VenronFilelist.hbm.xml" />
+        <mapping resource="iscas/bean/Labelinfo.hbm.xml" />
+        <mapping resource="iscas/bean/Eml2attachment.hbm.xml" />
+        <mapping resource="iscas/bean/Attachment.hbm.xml" />
+        <mapping resource="iscas/bean/Emls.hbm.xml" />
+        <mapping resource="iscas/bean/Filelist.hbm.xml" />
+        <mapping resource="iscas/bean/Emailmap.hbm.xml" />
+        <mapping resource="iscas/bean/Emailaddress.hbm.xml" />
+        <mapping resource="iscas/bean/VenronGroup.hbm.xml" />
+        <mapping resource="iscas/bean/Emaildetail.hbm.xml" />
+        <mapping resource="iscas/bean/Attachmentdetail.hbm.xml" />
+        <mapping resource="iscas/bean/Email.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

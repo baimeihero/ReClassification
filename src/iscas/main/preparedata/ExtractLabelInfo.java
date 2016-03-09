@@ -16,6 +16,10 @@ import iscas.bean.Labelinfo;
 import iscas.util.DatabaseManager;
 import iscas.util.POIUtil;
 
+/**
+ * @author baimei
+ *从电子表格中抽取Label信息
+ */
 public class ExtractLabelInfo  {
 
 	public static void main(String[] args) {

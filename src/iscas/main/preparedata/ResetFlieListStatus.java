@@ -6,8 +6,12 @@ import iscas.bean.Attachment;
 import iscas.bean.Filelist;
 import iscas.util.DatabaseManager;
 
-public class ResetFlieListStatus {
-
+/**
+ * @author baimei
+ *根据名称改变FileList中的status，已达到跳过多个可能低版本的电子表格
+ *
+ */
+public class ResetFlieListStatus { 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		removeSomeByFileNmae("ENRON.xls");

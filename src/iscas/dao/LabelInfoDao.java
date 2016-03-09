@@ -40,7 +40,16 @@ public class LabelInfoDao {
 		Labelinfo venronFilelist = null;
 		Criteria c = session.createCriteria(Labelinfo.class);
 		c.add(Restrictions.eq("fileMd5", fileMd5));
-		c.addOrder(Order.asc("sheetIndex"));
+		List<Labelinfo> list = c.list();
+		return list;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Labelinfo> getAllLabelinfo() {
+		Session session = null;
+		session = HibernateSessionFactory.currentSession();
+		Labelinfo venronFilelist = null;
+		Criteria c = session.createCriteria(Labelinfo.class);
 		List<Labelinfo> list = c.list();
 		return list;
 	}

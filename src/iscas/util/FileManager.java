@@ -1,10 +1,12 @@
 package iscas.util;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
@@ -16,10 +18,31 @@ public class FileManager {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		 List<String> temps=readText("E:\\IMVEnron\\4_5_gas\\4_5_gas.txt") ;
-		 for(int i=0;i<temps.size();i++)
-			 System.out.println(temps.get(i));
+		createTxt("E:\\aa\\", "bb.txt", "CCCCCCCCC");
 	}
+	
+	public static void createTxt(String path, String fileName, String content) {
+		/* 写入Txt文件 */
+		try {
+
+			File bpath = new File(path);
+
+			if (!bpath.exists())
+				bpath.mkdirs();
+
+			File writename = new File(path + fileName); // 相对路径，如果没有则要建立一个新的output。txt文件
+			writename.createNewFile();
+			BufferedWriter out = new BufferedWriter(new FileWriter(writename));
+			out.write(content); // \r\n即为换行
+			out.flush(); // 把缓存区内容压入文件
+			out.close(); // 最后记得关闭文件
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} // 创建新文件
+
+	}
+	
 	public static void copyFile(String oldFilePathAndName, String newFilePathAndName) {
 		oldFilePathAndName = oldFilePathAndName.trim();
 		oldFilePathAndName = oldFilePathAndName.replaceAll("\\\\", "/");

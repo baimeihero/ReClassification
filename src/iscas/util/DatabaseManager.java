@@ -380,6 +380,10 @@ public class DatabaseManager {
 		LabelInfoDao dao=new LabelInfoDao();
 		return dao.getLabelinfoByFileMD5(fileMd5);
 	}
+	public static   List<Labelinfo> getAllLabelinfo() {
+		LabelInfoDao dao=new LabelInfoDao();
+		return dao.getAllLabelinfo();
+	}
 	// =============================LabelInfoDao=================
 	public static void saveOrUpdateFileList(Filelist filelist) {
 		FileListDao dao=new FileListDao();
@@ -393,4 +397,5 @@ public class DatabaseManager {
 		FileListDao dao=new FileListDao();
 		return dao.getFilelistByFileMD5(fileMd5);
 	}
+	
 }
