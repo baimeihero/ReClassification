@@ -27,4 +27,7 @@
 	<table-filter match-name="sheetname"
 		match-catalog="reclassification">
 	</table-filter>
+	<table-filter match-name="metrics"
+		match-catalog="reclassification">
+	</table-filter>
 </hibernate-reverse-engineering>

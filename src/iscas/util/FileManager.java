@@ -18,9 +18,10 @@ public class FileManager {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		createTxt("E:\\aa\\", "bb.txt", "CCCCCCCCC");
+		appendTxt("E:\\aa\\", "bb.txt", "QQQQQQQQQQQQQ");
+
 	}
-	
+
 	public static void createTxt(String path, String fileName, String content) {
 		/* 写入Txt文件 */
 		try {
@@ -31,7 +32,8 @@ public class FileManager {
 				bpath.mkdirs();
 
 			File writename = new File(path + fileName); // 相对路径，如果没有则要建立一个新的output。txt文件
-			writename.createNewFile();
+			if (!writename.exists())
+				writename.createNewFile();
 			BufferedWriter out = new BufferedWriter(new FileWriter(writename));
 			out.write(content); // \r\n即为换行
 			out.flush(); // 把缓存区内容压入文件
@@ -42,19 +44,42 @@ public class FileManager {
 		} // 创建新文件
 
 	}
-	
+
+	public static void appendTxt(String path, String fileName, String content) {
+		/* 写入Txt文件 */
+		try {
+
+			File bpath = new File(path);
+
+			if (!bpath.exists())
+				bpath.mkdirs();
+
+			File writename = new File(path + fileName); // 相对路径，如果没有则要建立一个新的output。txt文件
+			if (!writename.exists())
+				writename.createNewFile();
+			BufferedWriter out = new BufferedWriter(new FileWriter(writename, true));
+			out.write(content); // \r\n即为换行
+			out.flush(); // 把缓存区内容压入文件
+			out.close(); // 最后记得关闭文件
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} // 创建新文件
+
+	}
+
 	public static void copyFile(String oldFilePathAndName, String newFilePathAndName) {
 		oldFilePathAndName = oldFilePathAndName.trim();
 		oldFilePathAndName = oldFilePathAndName.replaceAll("\\\\", "/");
 		newFilePathAndName = newFilePathAndName.replaceAll("\\\\", "/");
-		String newpath=newFilePathAndName.substring(0, newFilePathAndName.lastIndexOf("/"));
+		String newpath = newFilePathAndName.substring(0, newFilePathAndName.lastIndexOf("/"));
 		int byteread = 0;
 		try {
-			File oldFile=new File(oldFilePathAndName);
-			if(!oldFile.exists())
+			File oldFile = new File(oldFilePathAndName);
+			if (!oldFile.exists())
 				return;
-			File newp=new File(newpath);
-			if(!newp.exists())
+			File newp = new File(newpath);
+			if (!newp.exists())
 				newp.mkdirs();
 			File newFile = new File(newFilePathAndName);
 			newFile.createNewFile();
@@ -72,10 +97,10 @@ public class FileManager {
 		}
 
 	}
-	
+
 	public static List<String> readText(String filePathAndName) {
-		 List<String> list=new ArrayList<String>();
-		
+		List<String> list = new ArrayList<String>();
+
 		FileInputStream fs;
 		try {
 			File file = new File(filePathAndName);
@@ -85,29 +110,31 @@ public class FileManager {
 				isr = new InputStreamReader(fs);
 				BufferedReader br = new BufferedReader(isr);
 				String data = "";
-				int i=0;
+				int i = 0;
 				while ((data = br.readLine()) != null) {
-					list.add(i,data);
-				}			
+					System.out.println(i+"."+data);
+					list.add(i++, data);
+				}
 				fs.close();
-			} 
+			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		
+
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 
 		} catch (IOException e) {
 			e.printStackTrace();
-		
+
 		}
-		Collections.reverse(list);
+		//Collections.reverse(list);
 		return list;
 
 	}
-	public static List<String> readText(String filePathAndName,String code) {
-		List<String> list=new ArrayList<String>();
-		
+
+	public static List<String> readText(String filePathAndName, String code) {
+		List<String> list = new ArrayList<String>();
+
 		FileInputStream fs;
 		try {
 			File file = new File(filePathAndName);
@@ -117,27 +144,27 @@ public class FileManager {
 				isr = new InputStreamReader(fs, code);
 				BufferedReader br = new BufferedReader(isr);
 				String data = "";
-				int i=0;
+				int i = 0;
 				while ((data = br.readLine()) != null) {
-					list.add(i,data);
-				}			
+					list.add(i, data);
+				}
 				fs.close();
-			} 
+			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-			
+
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
-			
+
 		}
 		Collections.reverse(list);
 		return list;
-		
+
 	}
-	
+
 	public static void copyFolder(String oldFolderPath, String newFolderPath) {
 		oldFolderPath = oldFolderPath.trim();
 		newFolderPath = newFolderPath.trim();
@@ -147,32 +174,28 @@ public class FileManager {
 			newFolder.mkdirs();
 		}
 		if (!oldFolder.exists()) {
-			System.out.println("error info:"+oldFolderPath
-					+ " is not exist");
+			System.out.println("error info:" + oldFolderPath + " is not exist");
 			return;
 		}
 		if (newFolder.isFile()) {
-			System.out.println("error info:"+ newFolderPath
-					+ " is not directory");
+			System.out.println("error info:" + newFolderPath + " is not directory");
 			return;
 		}
 		if (oldFolder.isFile()) {
-			System.out.println("error info:"+oldFolderPath
-					+ " is not  not directory");
+			System.out.println("error info:" + oldFolderPath + " is not  not directory");
 			return;
 		}
 		String fileList[] = oldFolder.list();
 		for (int i = 0; i < fileList.length; i++) {
 			File temp = null;
-		
-				temp = new File(oldFolderPath + fileList[i]);
-			
+
+			temp = new File(oldFolderPath + fileList[i]);
+
 			if (temp.isFile()) {
-				copyFile(oldFolderPath + fileList[i], newFolderPath+ fileList[i]);
+				copyFile(oldFolderPath + fileList[i], newFolderPath + fileList[i]);
 			}
 			if (temp.isDirectory()) {
-				copyFolder(oldFolderPath + fileList[i]+"/", newFolderPath
-						+ fileList[i]+"/");
+				copyFolder(oldFolderPath + fileList[i] + "/", newFolderPath + fileList[i] + "/");
 			}
 		}
 

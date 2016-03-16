@@ -12,6 +12,7 @@ import iscas.bean.Eml2attachment;
 import iscas.bean.Emls;
 import iscas.bean.Filelist;
 import iscas.bean.Labelinfo;
+import iscas.bean.Metrics;
 import iscas.bean.Sheetname;
 import iscas.bean.VenronFilelist;
 import iscas.bean.VenronGroup;
@@ -24,6 +25,7 @@ import iscas.dao.Eml2attachmentDao;
 import iscas.dao.EmlsDao;
 import iscas.dao.FileListDao;
 import iscas.dao.LabelInfoDao;
+import iscas.dao.MetricsDao;
 import iscas.dao.SheetNameDao;
 import iscas.dao.VenronFilelistDao;
 import iscas.dao.VenronGroupDao;
@@ -419,5 +421,9 @@ public class DatabaseManager {
 		SheetNameDao dao=new SheetNameDao();
 		return dao.getAllSheetnames();
 	}
-	
+	// ==============================MetricDao=================
+	public static void saveOrUpdateMetrics(Metrics metrics) {
+		MetricsDao dao=new MetricsDao();
+		dao.saveOrUpdate(metrics);
+	}
 }

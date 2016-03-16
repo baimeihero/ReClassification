@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2016-3-9 10:27:31 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2016-3-9 17:29:25 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="iscas.bean.Sheetname" table="sheetname" catalog="reclassification">
-        <id name="id" type="int">
+        <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="fileMd5" type="string">
             <column name="FileMD5" />
@@ -28,6 +28,9 @@
         </property>
         <property name="refinedName" type="string">
             <column name="RefinedName" length="1024" />
+        </property>
+        <property name="weight" type="java.lang.Double">
+            <column name="Weight" precision="22" scale="0" />
         </property>
     </class>
 </hibernate-mapping>
