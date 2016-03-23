@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-3-18 8:34:52 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="iscas.bean.Sheetdetail" table="sheetdetail" catalog="reclassification">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="fileMd5" type="string">
+            <column name="FileMD5" />
+        </property>
+        <property name="sheetName" type="string">
+            <column name="SheetName" />
+        </property>
+        <property name="sheetPosition" type="java.lang.Integer">
+            <column name="SheetPosition" />
+        </property>
+        <property name="sheetNum" type="java.lang.Integer">
+            <column name="SheetNum" />
+        </property>
+        <property name="rowNum" type="java.lang.Integer">
+            <column name="RowNum" />
+        </property>
+        <property name="columnNum" type="java.lang.Integer">
+            <column name="ColumnNum" />
+        </property>
+        <property name="refinedName" type="string">
+            <column name="RefinedName" length="1024" />
+        </property>
+        <property name="horizonalLabels" type="string">
+            <column name="HorizonalLabels" />
+        </property>
+        <property name="verticalLabels" type="string">
+            <column name="VerticalLabels" />
+        </property>
+        <property name="fontLabels" type="string">
+            <column name="FontLabels" length="65535" />
+        </property>
+        <property name="textLabels" type="string">
+            <column name="TextLabels" />
+        </property>
+    </class>
+</hibernate-mapping>
