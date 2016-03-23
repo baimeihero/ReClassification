@@ -112,7 +112,7 @@ public class FileManager {
 				String data = "";
 				int i = 0;
 				while ((data = br.readLine()) != null) {
-					System.out.println(i+"."+data);
+			//		System.out.println(i+"."+data);
 					list.add(i++, data);
 				}
 				fs.close();

@@ -1,16 +1,38 @@
 
 package iscas.main.process;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-
-import iscas.util.FileManager;
 
 public class Test {
 	public static void main(String[] args) {
-		String data=
-"6eaffa73ae67acf4417966c7abc0469a-5f873176a6353a37669f85547706419c=0.75";
-    System.out.println(data.substring(0,32));
-    System.out.println(data.substring(33,65));
-    System.out.println(data.substring(66));
+
+			  List list1 =new ArrayList();
+			  list1.add("1111");
+			  list1.add("2222");
+			  list1.add("3333");
+			  
+			  List list2 =new ArrayList();
+			  list2.add("3333");
+			  list2.add("4444");
+			  list2.add("5555");
+			  
+			  //并集
+			  //list1.addAll(list2);
+			  //交集
+			list1.retainAll(list2);
+			  //差集
+			  //list1.removeAll(list2);
+			  //无重复并集
+			//    list2.removeAll(list1);
+			//    list1.addAll(list2);
+			  
+			  Iterator<String> it=list1.iterator();
+			  while (it.hasNext()) {
+			   System.out.println(it.next());
+			   
+			  }
+
 	}
 }

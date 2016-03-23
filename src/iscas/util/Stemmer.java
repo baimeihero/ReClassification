@@ -11,10 +11,10 @@ import java.util.HashMap;
 
 public class Stemmer {
 	private int MaxWordLength = 50;
-	private Dictionary dic;
-	private MorphologicalProcessor morph;
-	private boolean IsInitialized = false;
-	public HashMap AllWords = null;
+	private static Dictionary dic;
+	private static MorphologicalProcessor morph;
+	private static boolean IsInitialized = false;
+	public static HashMap AllWords = null;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -25,24 +25,26 @@ public class Stemmer {
 	/**
 	 * establishes connection to the WordNet database
 	 */
-	public Stemmer() {
-		AllWords = new HashMap();
+	public Stemmer() {}
+          static {
 
-		try {
-			JWNL.initialize(new FileInputStream("D:\\workspace64\\ReClassification\\src\\file_properties.xml"));
-			dic = Dictionary.getInstance();
-			morph = dic.getMorphologicalProcessor();
-			// ((AbstractCachingDictionary)dic).
-			// setCacheCapacity (10000);
-			IsInitialized = true;
-		} catch (FileNotFoundException e) {
-			System.out.println("Error initializing Stemmer: 				JWNLproperties.xml not found");
-		} catch (JWNLException e) {
-			System.out.println("Error initializing Stemmer: " + e.toString());
-		}
+      		AllWords = new HashMap();
 
-	}
+      		try {
+      			JWNL.initialize(new FileInputStream("D:\\workspace64\\ReClassification\\src\\file_properties.xml"));
+      			dic = Dictionary.getInstance();
+      			morph = dic.getMorphologicalProcessor();
+      			// ((AbstractCachingDictionary)dic).
+      			// setCacheCapacity (10000);
+      			IsInitialized = true;
+      		} catch (FileNotFoundException e) {
+      			System.out.println("Error initializing Stemmer: 				JWNLproperties.xml not found");
+      		} catch (JWNLException e) {
+      			System.out.println("Error initializing Stemmer: " + e.toString());
+      		}
 
+      	
+          }
 	public void Unload() {
 		dic.close();
 
@@ -58,7 +60,7 @@ public class Stemmer {
 	 * 
 	 * @return the stemmed word or null if it was not found in WordNet
 	 */
-	public String StemWordWithWordNet(String word) {
+	public static String StemWordWithWordNet(String word) {
 		if (!IsInitialized)
 			return word;
 		if (word == null)
@@ -81,6 +83,7 @@ public class Stemmer {
 			if (w != null)
 				return w.getLemma().toString();
 		} catch (JWNLException e) {
+
 		}
 		return word;
 	}

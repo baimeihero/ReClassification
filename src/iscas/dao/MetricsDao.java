@@ -34,24 +34,18 @@ public class MetricsDao {
 		return venronMetrics;
 	}
 
+
 	@SuppressWarnings("unchecked")
-	public Metrics getMetricsByFileMD5(String fileMd5) {
+	public Metrics getMetricByValue(Float value) {
 		Session session = null;
 		session = HibernateSessionFactory.currentSession();
 		Criteria c = session.createCriteria(Metrics.class);
-		c.add(Restrictions.eq("fileMd5", fileMd5));
-		List<Metrics> list = c.list();
-		return list.get(0);
-	}
-	@SuppressWarnings("unchecked")
-	public List<Metrics> getMetricsUndoMD5s() {
-		Session session = null;
-		session = HibernateSessionFactory.currentSession();
-		Criteria c = session.createCriteria(Metrics.class);
-		c.add(Restrictions.eq("status", 0));	
+		c.add(Restrictions.eq("metricValue", value));	
 		c.addOrder(Order.asc("id"));
 		List<Metrics> list = c.list();
-		return list;
+		if(list==null||list.isEmpty())
+			return null;
+		return list.get(0);
 	}
 	
 	public List queryBySql(String sql) {    

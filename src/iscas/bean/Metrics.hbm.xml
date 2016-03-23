@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2016-3-9 17:29:25 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2016-3-18 8:34:52 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="iscas.bean.Metrics" table="metrics" catalog="reclassification">
         <id name="id" type="java.lang.Integer">
             <column name="Id" />
             <generator class="identity" />
         </id>
-        <property name="filePair" type="string">
-            <column name="FilePair" />
+        <property name="metricValue" type="java.lang.Float">
+            <column name="MetricValue" precision="12" scale="0" />
         </property>
-        <property name="mtricBasedSheetName" type="java.lang.Float">
-            <column name="MtricBasedSheetName" precision="12" scale="0" />
+        <property name="pairBasedSheetName" type="string">
+            <column name="PairBasedSheetName" />
         </property>
     </class>
 </hibernate-mapping>

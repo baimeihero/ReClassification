@@ -46,7 +46,7 @@ public class VenronFilelistDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<VenronFilelist> getVenronFilelistbyGroupId(String groupId) {
+	public List<VenronFilelist> getVenronFilelistbyGroupId(int groupId) {
 		Session session = null;
 		session = HibernateSessionFactory.currentSession();
 		Criteria c = session.createCriteria(VenronFilelist.class);

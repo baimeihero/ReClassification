@@ -53,6 +53,16 @@ public class FileListDao {
 		List<Filelist> list = c.list();
 		return list;
 	}
+	@SuppressWarnings("unchecked")
+	public List<Filelist> getFilelists() {
+		Session session = null;
+		session = HibernateSessionFactory.currentSession();
+		Criteria c = session.createCriteria(Filelist.class);
+		c.addOrder(Order.asc("id"));
+		c.add(Restrictions.eq("status",1));	
+		List<Filelist> list = c.list();
+		return list;
+	}
 	
 	public List queryBySql(String sql) {    
 		Session session = null;

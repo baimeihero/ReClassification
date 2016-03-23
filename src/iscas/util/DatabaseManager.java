@@ -13,7 +13,7 @@ import iscas.bean.Emls;
 import iscas.bean.Filelist;
 import iscas.bean.Labelinfo;
 import iscas.bean.Metrics;
-import iscas.bean.Sheetname;
+import iscas.bean.Sheetdetail;
 import iscas.bean.VenronFilelist;
 import iscas.bean.VenronGroup;
 import iscas.dao.AttachmentDao;
@@ -133,11 +133,12 @@ public class DatabaseManager {
 
 	// ===============================AttachmentDao===========================
 
-	public static List<String> getAllAttachmentMD5(){
+	public static List<String> getAllAttachmentMD5() {
 		AttachmentDao attacmentDao = new AttachmentDao();
-	
+
 		return attacmentDao.getAllMD5();
 	}
+
 	public static List<Attachment> getAttachmentsByName(String filename) {
 		AttachmentDao attacmentDao = new AttachmentDao();
 		List<Attachment> list = attacmentDao.getAttachmentsByName(filename);
@@ -341,7 +342,7 @@ public class DatabaseManager {
 		return dao.getVenronFilelistByMD5(md5);
 	}
 
-	public static List<VenronFilelist> getVenronFilelistbyGroupId(String groupId) {
+	public static List<VenronFilelist> getVenronFilelistbyGroupId(int groupId) {
 		VenronFilelistDao dao = new VenronFilelistDao();
 		return dao.getVenronFilelistbyGroupId(groupId);
 
@@ -362,68 +363,93 @@ public class DatabaseManager {
 		EmailAddressDao dao = new EmailAddressDao();
 		return dao.getEmailaddressById(id);
 	}
-	public static List<Emailaddress> getEmailaddresssByFileMD5(String fileName,String filemd5) {
+
+	public static List<Emailaddress> getEmailaddresssByFileMD5(String fileName, String filemd5) {
 		EmailAddressDao dao = new EmailAddressDao();
 		return dao.getEmailaddresssByFileMD5(fileName, filemd5);
 	}
-	public static List<Emailaddress> getEmailaddresssByFileMd5AndType(String fileName,String filemd5,String addressType) {
+
+	public static List<Emailaddress> getEmailaddresssByFileMd5AndType(String fileName, String filemd5,
+			String addressType) {
 		EmailAddressDao dao = new EmailAddressDao();
 		return dao.getEmailaddresssByFileMd5AndType(fileName, filemd5, addressType);
 	}
+
 	public static List<Emailaddress> getEmailaddresssbyAddress(String Address) {
 		EmailAddressDao dao = new EmailAddressDao();
 		return dao.getEmailaddresssbyAddress(Address);
 	}
-	
+
 	// =============================LabelInfoDao=================
 	public static void saveOrUpdateLabelinfo(Labelinfo label) {
-		LabelInfoDao dao=new LabelInfoDao();
+		LabelInfoDao dao = new LabelInfoDao();
 		dao.saveOrUpdate(label);
 	}
-	public static   List<Labelinfo> getLabelinfoByFileMD5(String fileMd5) {
-		LabelInfoDao dao=new LabelInfoDao();
+
+	public static List<Labelinfo> getLabelinfoByFileMD5(String fileMd5) {
+		LabelInfoDao dao = new LabelInfoDao();
 		return dao.getLabelinfoByFileMD5(fileMd5);
 	}
-	public static   List<Labelinfo> getAllLabelinfo() {
-		LabelInfoDao dao=new LabelInfoDao();
+
+	public static List<Labelinfo> getAllLabelinfo() {
+		LabelInfoDao dao = new LabelInfoDao();
 		return dao.getAllLabelinfo();
 	}
+
 	// ==============================FileListDao=================
 	public static void saveOrUpdateFileList(Filelist filelist) {
-		FileListDao dao=new FileListDao();
+		FileListDao dao = new FileListDao();
 		dao.saveOrUpdate(filelist);
 	}
-	public static   List<Filelist> getFilelistUndoMD5s() {
-		FileListDao dao=new FileListDao();
+
+	public static List<Filelist> getFilelistUndoMD5s() {
+		FileListDao dao = new FileListDao();
 		return dao.getFilelistUndoMD5s();
 	}
-	public static  Filelist getFilelistByFileMD5(String fileMd5) {
-		FileListDao dao=new FileListDao();
+	public static List<Filelist> getFilelists() {
+		FileListDao dao = new FileListDao();
+		return dao.getFilelists();
+	}
+
+	public static Filelist getFilelistByFileMD5(String fileMd5) {
+		FileListDao dao = new FileListDao();
 		return dao.getFilelistByFileMD5(fileMd5);
 	}
-	public static  List<String>  getFilelistCanBeAnalysis() {
-		FileListDao dao=new FileListDao();
+
+	public static List<String> getFilelistCanBeAnalysis() {
+		FileListDao dao = new FileListDao();
 		return dao.queryBySql(SQLStatements.Query_FileList_CanBeAnalysis);
 	}
+
 	// ==============================SheetName=================
-	public static void saveOrUpdateSheetName(Sheetname sheetname) {
-		SheetNameDao dao=new SheetNameDao();
+	public static void saveOrUpdateSheetName(Sheetdetail sheetname) {
+		SheetNameDao dao = new SheetNameDao();
 		dao.saveOrUpdate(sheetname);
 	}
-	
-	
-	public static  List<Sheetname> getSheetnameByFileMD5(String fileMD5) {
-		SheetNameDao dao=new SheetNameDao();
+
+	public static List<Sheetdetail> getSheetnameByFileMD5(String fileMD5) {
+		SheetNameDao dao = new SheetNameDao();
 		return dao.getSheetnameByFileMD5(fileMD5);
 	}
-	
-	public static List<Sheetname> getAllSheetnames() {
-		SheetNameDao dao=new SheetNameDao();
+
+	public static List<Sheetdetail> getAllSheetnames() {
+		SheetNameDao dao = new SheetNameDao();
 		return dao.getAllSheetnames();
 	}
+
 	// ==============================MetricDao=================
 	public static void saveOrUpdateMetrics(Metrics metrics) {
-		MetricsDao dao=new MetricsDao();
+		MetricsDao dao = new MetricsDao();
 		dao.saveOrUpdate(metrics);
+	}
+
+	public static List<String> getPairBasedSheetNameByValue(Float value) {
+		MetricsDao dao = new MetricsDao();
+		return dao.queryBySql(SQLStatements.Query_PairBasedSheetName_GT_Value + value);
+	}
+
+	public static Metrics getMetricByValue(Float value) {
+		MetricsDao dao = new MetricsDao();
+		return dao.getMetricByValue(value);
 	}
 }

@@ -8,7 +8,7 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import iscas.bean.Attachment;
-import iscas.bean.Sheetname;
+import iscas.bean.Sheetdetail;
 import iscas.util.DatabaseManager;
 import iscas.util.FileManager;
 import iscas.util.POIUtil;
@@ -55,7 +55,7 @@ public class ExtractSheetName {
 					continue;
 				maxColumn=maxColumn>row.getLastCellNum()?maxColumn:row.getLastCellNum();			
 			}
-		Sheetname sheetname=new Sheetname();
+		Sheetdetail sheetname=new Sheetdetail();
 		sheetname.setFileMd5(attachment.getFilemd5());
 		sheetname.setSheetName(sheetName);
 		sheetname.setSheetPosition(sheetIndex);

@@ -1,14 +1,10 @@
 package iscas.main.test;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.Font;
 
-import iscas.util.CellUtil;
 import iscas.util.POIUtil;
 
 public class IsSeedTest {
@@ -28,7 +24,7 @@ public class IsSeedTest {
 				continue;
 			for (int j = 0; j <= row.getLastCellNum(); j++) {
 				HSSFCell cell = row.getCell(j);
-				CellUtil.isSeed(cell);
+		
 			}
 		}
 

@@ -24,10 +24,10 @@
 		match-name="labelinfo" />
 	<table-filter match-catalog="reclassification"
 		match-name="filelist" />
-	<table-filter match-name="sheetname"
+	<table-filter match-name="metrics"
 		match-catalog="reclassification">
 	</table-filter>
-	<table-filter match-name="metrics"
+	<table-filter match-name="sheetdetail"
 		match-catalog="reclassification">
 	</table-filter>
 </hibernate-reverse-engineering>

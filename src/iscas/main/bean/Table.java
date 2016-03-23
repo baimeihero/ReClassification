@@ -45,7 +45,7 @@ public class Table {
 		String result = "";
 		result += "文件名：" + this.fileName + "\n";
 		result += "Sheet Index:" + this.sheetIndex + "\n";
-		result += "Table Array: " + this.leftTopCell.toString() + "……" + this.rightBottomCell.toString() + "\n";
+		result += "Table Array: " +this.leftTopCell.getRowIndex()+","+this.leftTopCell.getColumnIndex()+ "……" + this.rightBottomCell.getRowIndex()+","+this.rightBottomCell.getColumnIndex() ;
 		return result;
 	}
 
